@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Time Conversion</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Time Conversion</h2>
+    <div class="form-group">
+      <label for="timeValue">Enter Time:</label>
+      <input type="number" class="form-control" id="timeValue" placeholder="Enter Time">
+    </div>
+    <div class="form-group">
+      <label for="conversionType">Select Conversion Type:</label>
+      <select class="form-control" id="conversionType">
+        <option value="Minutes to Seconds">Minutes to Seconds</option>
+        <option value="Minutes to Hours">Minutes to Hours</option>
+        <option value="Minutes to Days">Minutes to Days</option>
+        <option value="Hours to Seconds">Hours to Seconds</option>
+        <option value="Hours to Minutes">Hours to Minutes</option>
+        <option value="Hours to Days">Hours to Days</option>
+        <option value="Days to Seconds">Days to Seconds</option>
+        <option value="Days to Minutes">Days to Minutes</option>
+        <option value="Days to Hours">Days to Hours</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary" onclick="convertTime()">Convert!</button>
+    </div>
+    <div class="form-group">
+      <label for="result">Result:</label>
+      <input type="text" class="form-control" id="result" placeholder="Result" readonly>
+    </div>
+  </div>
+  <script>
+function convertTime() {
+  let timeValue = parseFloat(document.getElementById("timeValue").value);
+  let conversionType = document.getElementById("conversionType").value;
+  let result = 0;
+      
+  if (conversionType === "Minutes to Seconds") {
+    result = timeValue * 60;
+  } else if (conversionType === "Minutes to Hours") {
+    result = timeValue / 60;
+  } else if (conversionType === "Minutes to Days") {
+    result = timeValue / 1440;
+  } else if (conversionType === "Hours to Seconds") {
+    result = timeValue * 3600;
+  } else if (conversionType === "Hours to Minutes") {
+    result = timeValue * 60;
+  } else if (conversionType === "Hours to Days") {
+    result = timeValue / 24;
+  } else if (conversionType === "Days to Seconds") {
+    result = timeValue * 86400;
+  } else if (conversionType === "Days to Minutes") {
+    result = timeValue * 1440;
+  } else if (conversionType === "Days to Hours") {
+    result = timeValue * 24;
+  }
+
+  document.getElementById("result").value = result;
+}
+</script>
